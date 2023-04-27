@@ -1,7 +1,7 @@
 #include <AFMotor.h>
 
-AF_DCMotor motorDir(1);
-AF_DCMotor motorEsq(3);
+AF_DCMotor motorDir(3);
+AF_DCMotor motorEsq(2);
 
 
 void setup() {
@@ -14,7 +14,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  moveF(255, 255);
+  moveF(150, 150);
   // delay(5000);
   // moveB(255, 255);
   // delay(5000);
