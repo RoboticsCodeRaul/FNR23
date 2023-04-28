@@ -9,7 +9,7 @@ void setup() {
   Serial.begin(9600);
   //Define o tipo de sensor segue linha (digital)
   qtr.setTypeRC();
-  qtr.setSensorPins((const uint8_t[]){ 53, 51, 49, 47, 45, 43, 41, 39 }, SensorCount);
+  qtr.setSensorPins((const uint8_t[]){ 53, 51, 47, 45, 41, 39, 37, 35 }, SensorCount);
   qtr.setEmitterPin(52);
 
   sensorCalibrate();

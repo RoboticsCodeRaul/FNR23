@@ -21,7 +21,7 @@ uint16_t sensorValues[NUM_SENSORS];
 void setup() {
   Serial.begin(9600);
   qtr.setTypeRC();
-  qtr.setSensorPins((const uint8_t[]){ 53, 51, 49, 47, 45, 43, 41, 39 }, NUM_SENSORS);
+  qtr.setSensorPins((const uint8_t[]){ 53, 51, 47, 45, 41, 39, 37, 35 }, NUM_SENSORS);
   qtr.setEmitterPin(EMITTER_PIN);
   // delay(1500);
   sensorCalibrate();

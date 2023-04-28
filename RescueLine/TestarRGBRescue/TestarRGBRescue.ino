@@ -1,7 +1,7 @@
 #include <Wire.h>
 #include "Adafruit_TCS34725softi2c.h"
 
-const int sdaDir = 50, sclDir = 48, sdaEsq = 46, sclEsq = 44;
+const int sdaDir = 48, sclDir = 46, sdaEsq = 44, sclEsq = 42;
 
 Adafruit_TCS34725softi2c rgbDir = Adafruit_TCS34725softi2c(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X, sdaDir, sclDir);
 Adafruit_TCS34725softi2c rgbEsq = Adafruit_TCS34725softi2c(TCS34725_INTEGRATIONTIME_50MS, TCS34725_GAIN_4X, sdaEsq, sclEsq);
@@ -10,10 +10,10 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
 
-  while (!rgbDir.begin()) {
-    Serial.println("O sensor RGB direito não foi encontrado ... verifica as ligações");
-    delay(1000);
-  }
+  // while (!rgbDir.begin()) {
+  //   Serial.println("O sensor RGB direito não foi encontrado ... verifica as ligações");
+  //   delay(1000);
+  // }
 
   while (!rgbEsq.begin()) {
     Serial.println("O sensor RGB esquerdo não foi encontrado ... verifica as ligações");
