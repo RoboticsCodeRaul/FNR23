@@ -10,10 +10,10 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
 
-  // while (!rgbDir.begin()) {
-  //   Serial.println("O sensor RGB direito não foi encontrado ... verifica as ligações");
-  //   delay(1000);
-  // }
+  while (!rgbDir.begin()) {
+    Serial.println("O sensor RGB direito não foi encontrado ... verifica as ligações");
+    delay(1000);
+  }
 
   while (!rgbEsq.begin()) {
     Serial.println("O sensor RGB esquerdo não foi encontrado ... verifica as ligações");

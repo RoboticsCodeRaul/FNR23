@@ -9,10 +9,10 @@ AF_DCMotor frenteEsq(2);
 AF_DCMotor trasEsq(3);
 AF_DCMotor trasDir(4);
 
-#define LIMITS 120.0
+#define LIMITS 100.0
 double kp = 10.0, ki = 0.5, kd = 25.0;  //PID control gains <> Ganhos do controlo PID
-int vel = 90;                            //Max Speed <> Velocidade Máxima dos motores
-int vCurve = 1;                          //Curve outside wheel max speed limit <> Limite de velocidade da roda exterior na curva
+int vel = 90;                           //Max Speed <> Velocidade Máxima dos motores
+int vCurve = 60;                        //Curve outside wheel max speed limit <> Limite de velocidade da roda exterior na curva
 
 #define EMITTER_PIN 42  //emitterPin is the Arduino digital pin that controls whether the IR LEDs are on or off. Emitter is controlled by digital pin 2
 
@@ -82,36 +82,15 @@ void loop() {
   Serial.print(velM1);
   Serial.print("   M2:");
   Serial.println(velM2);
-  //delay(100);
-  //moveF(velM1, velM2);
-  //one.move(velM1, velM2);
-
-
-
-
-  //unsigned int sensors[8];
-  //int position = qtr.readLine(sensors);  //get calibrated readings along with the line position, refer to the QTR Sensors Arduino Library for more details on line position.
-
-
-  // int error = position - 2000;
-
-  // int motorSpeed = KP * error + KD * (error - lastError);
-  // lastError = error;
-
-  // int leftMotorSpeed = M1_minumum_speed + motorSpeed;
-  // int rightMotorSpeed = M2_minumum_speed - motorSpeed;
-
-  // Serial.print('\t');
-  // Serial.println(motorSpeed);
-  // Serial.print('\t');
-  // Serial.println(rightMotorSpeed);
 
   // // set motor speeds using the two motor speed variables above
- 
+  if (line < -80) {
+    moveR(velM2, velM2 - 30);
+  } else if (line >= -80 && line <= 80)
     moveF(velM2, velM1);
-  
-   
- 
+  else {
+    moveL(velM1, velM1 - 30);
+  }
 }
 
 void moveF(int velA, int velB) {  // -> para o carro andar para a frente
